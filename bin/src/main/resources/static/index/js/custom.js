@@ -134,10 +134,10 @@ $(document).ready(function()
 			var playlist = 
 			[
 				{
-					title:"(여자)아이들, Madison Beer, Jaira Burns, K_DA - POPSTARS",
-					artist:"(여자)아이들, Madison Beer, Jaira Burns, K_DA",
-					mp3:"/index/files/(여자)아이들, Madison Beer, Jaira Burns, K_DA - POPSTARS.mp3",
-					duration:"3:11"
+					title:"아이즈원 - 라비앙로즈 (La Vie en Rose)",
+					artist:"아이즈원",
+					mp3:"/index/files/아이즈원 - 라비앙로즈 (La Vie en Rose).mp3",
+					duration:"3:38"
 				},
 				{
 					title:"방탄소년단(BTS) - IDOL",
@@ -146,10 +146,10 @@ $(document).ready(function()
 					duration:"3:42"
 				},
 				{
-					title:"EXO - Tempo",
-					artist:"EXO",
-					mp3:"/index/files/EXO - Tempo.mp3",
-					duration:"3:44"
+					title:"트와이스 - YES or YES",
+					artist:"트와이스",
+					mp3:"/index/files/트와이스 - YES or YES.mp3",
+					duration:"3:57"
 				},
 			];
 

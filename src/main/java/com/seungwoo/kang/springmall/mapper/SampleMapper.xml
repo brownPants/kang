@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	public OTHER_CLASS implements com.example.springmall.MemberMapper {
+	} 
+ -->  
+<mapper namespace="com.seungwoo.kang.springmall.mapper.SampleMapper">
+	<select id="selectSampleAllCount" resultType="int" parameterType="String">
+        SELECT 
+        	COUNT(*)
+       	FROM jjdev.sample
+       	WHERE sample_id LIKE #{searchWord} OR sample_pw LIKE #{searchWord}
+    </select>
+    <select id="selectSampleAll" resultType="com.seungwoo.kang.springmall.vo.Sample" parameterType="HashMap">
+        SELECT 
+        	sample_no as sampleNo, sample_id as sampleId, sample_pw as samplePw 
+       	FROM jjdev.sample
+       	WHERE sample_id LIKE #{searchWord} OR sample_pw LIKE #{searchWord}
+       	ORDER BY sampleNo DESC LIMIT #{pageMaker.startRow}, #{pageMaker.rowPerPage}
+    </select>
+    <delete id="deleteSample" parameterType="int">
+    	DELETE
+   		FROM jjdev.sample
+   		WHERE sample_no = #{sampleNo}
+    </delete>
+    <insert id="insertSample" parameterType="com.seungwoo.kang.springmall.vo.Sample">
+    	<selectKey resultType="int" keyProperty="sampleNo" order="AFTER">
+    		SELECT LAST_INSERT_ID()
+    	</selectKey>
+    	INSERT
+   		INTO jjdev.sample
+   			(sample_id, sample_pw)
+   		VALUES (#{sampleId}, #{samplePw})
+    </insert>
+    <update id="updateSample" parameterType="com.seungwoo.kang.springmall.vo.Sample">
+    	UPDATE jjdev.sample 
+		SET sample_id = #{sampleId}, sample_pw = #{samplePw} 
+		WHERE sample_no = #{sampleNo}
+    </update>
+    <select id="selectOne" parameterType="int" resultType="com.seungwoo.kang.springmall.vo.Sample">
+   	 	SELECT 
+       		sample_no as sampleNo, sample_id as sampleId, sample_pw as samplePw 
+       	FROM jjdev.sample
+       	WHERE sample_no = #{sampleNo}
+    </select>
+</mapper>
+
