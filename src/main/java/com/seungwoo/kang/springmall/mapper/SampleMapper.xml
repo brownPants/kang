@@ -10,19 +10,19 @@
 	<select id="selectSampleAllCount" resultType="int" parameterType="String">
         SELECT 
         	COUNT(*)
-       	FROM jjdev.sample
+       	FROM sample
        	WHERE sample_id LIKE #{searchWord} OR sample_pw LIKE #{searchWord}
     </select>
     <select id="selectSampleAll" resultType="com.seungwoo.kang.springmall.vo.Sample" parameterType="HashMap">
         SELECT 
         	sample_no as sampleNo, sample_id as sampleId, sample_pw as samplePw 
-       	FROM jjdev.sample
+       	FROM sample
        	WHERE sample_id LIKE #{searchWord} OR sample_pw LIKE #{searchWord}
        	ORDER BY sampleNo DESC LIMIT #{pageMaker.startRow}, #{pageMaker.rowPerPage}
     </select>
     <delete id="deleteSample" parameterType="int">
     	DELETE
-   		FROM jjdev.sample
+   		FROM sample
    		WHERE sample_no = #{sampleNo}
     </delete>
     <insert id="insertSample" parameterType="com.seungwoo.kang.springmall.vo.Sample">
@@ -30,19 +30,19 @@
     		SELECT LAST_INSERT_ID()
     	</selectKey>
     	INSERT
-   		INTO jjdev.sample
+   		INTO sample
    			(sample_id, sample_pw)
    		VALUES (#{sampleId}, #{samplePw})
     </insert>
     <update id="updateSample" parameterType="com.seungwoo.kang.springmall.vo.Sample">
-    	UPDATE jjdev.sample 
+    	UPDATE sample 
 		SET sample_id = #{sampleId}, sample_pw = #{samplePw} 
 		WHERE sample_no = #{sampleNo}
     </update>
     <select id="selectOne" parameterType="int" resultType="com.seungwoo.kang.springmall.vo.Sample">
    	 	SELECT 
        		sample_no as sampleNo, sample_id as sampleId, sample_pw as samplePw 
-       	FROM jjdev.sample
+       	FROM sample
        	WHERE sample_no = #{sampleNo}
     </select>
 </mapper>

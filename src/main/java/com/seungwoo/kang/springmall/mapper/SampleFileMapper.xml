@@ -5,20 +5,20 @@
 <mapper namespace="com.seungwoo.kang.springmall.mapper.SampleFileMapper">
 	<insert id="insertSampleFile" parameterType="com.seungwoo.kang.springmall.vo.SampleFile">
 		INSERT
-		INTO jjdev.samplefile
+		INTO samplefile
 			(sample_no, samplefile_path, samplefile_name, samplefile_ext, samplefile_type, samplefile_size, samplefile_date)
 		VALUES (#{sampleNo}, #{sampleFilePath}, #{sampleFileName}, #{sampleFileExt}, #{sampleFileType}, #{sampleFileSize}, now())
 	</insert>
 	<delete id="deleteSampleFile" parameterType="int">
 		DELETE
-		FROM jjdev.samplefile
+		FROM samplefile
 		WHERE sample_no = #{sampleNo}
 	</delete>
 	<select id="selectOneSampleFile" parameterType="int" resultType="com.seungwoo.kang.springmall.vo.SampleFile">
 	 	SELECT 
 	   		samplefile_no as sampleFileNo, sample_no as sampleNo, samplefile_path as sampleFilePath, samplefile_name as sampleFileName, 
 	   		samplefile_ext as sampleFileExt, samplefile_type as sampleFileType, samplefile_size as sampleFileSize, samplefile_date as sampleFileDate
-	   	FROM jjdev.samplefile
+	   	FROM samplefile
 	   	WHERE sample_no = #{sampleNo}
 	</select>
 </mapper>
